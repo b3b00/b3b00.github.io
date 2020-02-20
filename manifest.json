@@ -6,6 +6,9 @@
     "background_color": "#fdfdfd",
     "theme_color": "#db4938",
     "orientation": "portrait-primary",
-    "icons": [      
+    "icons": [ 
+{
+"src":"test.png",
+"sizes":"225x225"
     ]
   }
