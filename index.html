@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>SMUI Example</title>
+  <title>Svelte PWA</title>
   <meta charset="utf-8">
 
   <!-- Fonts and CSS -->
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="dist/bundle.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="test.png">
 
   <style>
     html,
@@ -30,7 +31,7 @@
     if ("serviceWorker" in navigator) {
 
       navigator.serviceWorker
-        .register("https://b3b00.github.io/worker.js")
+        .register("/worker.js")
         .then(res => console.log("service worker registered", res))
         .catch(err => console.log("service worker not registered", err))
 
