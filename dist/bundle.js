@@ -3036,7 +3036,7 @@
   	};
   }
 
-  // (15:4) <Card style="width: 360px;">
+  // (15:4) <Card>
   function create_default_slot$2(ctx) {
   	let t;
   	let p;
@@ -3119,7 +3119,6 @@
 
   	const card = new Card({
   			props: {
-  				style: "width: 360px;",
   				$$slots: { default: [create_default_slot$2] },
   				$$scope: { ctx }
   			}
@@ -4214,7 +4213,7 @@
   	};
   }
 
-  // (10:4) <Card style="width: 360px;">
+  // (10:4) <Card >
   function create_default_slot$3(ctx) {
   	let current;
 
@@ -4266,7 +4265,6 @@
 
   	const card = new Card({
   			props: {
-  				style: "width: 360px;",
   				$$slots: { default: [create_default_slot$3] },
   				$$scope: { ctx }
   			}
