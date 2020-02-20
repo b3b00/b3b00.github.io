@@ -1,7 +1,7 @@
 {
     "name": "yep",
     "short_name": "yep",
-    "start_url": "https://b3b00.github.io/index.html",
+    "start_url": "./index.html",
     "display": "minimal-ui",
     "background_color": "#fdfdfd",
     "theme_color": "#db4938",
