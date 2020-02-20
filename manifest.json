@@ -11,5 +11,9 @@
 "src":"test.png",
 "sizes":"225x225"
 }
+{
+    "src":"test512.png",
+    "sizes":"512x512"
+}
     ]
   }
