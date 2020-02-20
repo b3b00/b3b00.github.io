@@ -8813,7 +8813,7 @@
   	};
   }
 
-  // (37:12) <Label>
+  // (42:12) <Label>
   function create_default_slot_8(ctx) {
   	let t;
 
@@ -8830,7 +8830,7 @@
   	};
   }
 
-  // (35:8) <Button on:click={reset}>
+  // (40:8) <Button on:click={reset}>
   function create_default_slot_7(ctx) {
   	let t;
   	let current;
@@ -8865,14 +8865,14 @@
   		p(ctx, dirty) {
   			const icon_changes = {};
 
-  			if (dirty & /*$$scope*/ 128) {
+  			if (dirty & /*$$scope*/ 512) {
   				icon_changes.$$scope = { dirty, ctx };
   			}
 
   			icon.$set(icon_changes);
   			const label_changes = {};
 
-  			if (dirty & /*$$scope*/ 128) {
+  			if (dirty & /*$$scope*/ 512) {
   				label_changes.$$scope = { dirty, ctx };
   			}
 
@@ -8897,13 +8897,13 @@
   	};
   }
 
-  // (33:4) <Card>
+  // (38:4) <Card>
   function create_default_slot_6(ctx) {
   	let t0;
   	let span;
   	let t1;
   	let t2;
-  	let t3_value = (/*guesses*/ ctx[1] > 0 ? "s" : "") + "";
+  	let t3_value = (/*guesses*/ ctx[0] > 0 ? "s" : "") + "";
   	let t3;
   	let current;
 
@@ -8914,14 +8914,14 @@
   			}
   		});
 
-  	button.$on("click", /*reset*/ ctx[4]);
+  	button.$on("click", /*reset*/ ctx[5]);
 
   	return {
   		c() {
   			create_component(button.$$.fragment);
   			t0 = space();
   			span = element("span");
-  			t1 = text(/*guesses*/ ctx[1]);
+  			t1 = text(/*guesses*/ ctx[0]);
   			t2 = text(" essai");
   			t3 = text(t3_value);
   		},
@@ -8937,13 +8937,13 @@
   		p(ctx, dirty) {
   			const button_changes = {};
 
-  			if (dirty & /*$$scope*/ 128) {
+  			if (dirty & /*$$scope*/ 512) {
   				button_changes.$$scope = { dirty, ctx };
   			}
 
   			button.$set(button_changes);
-  			if (!current || dirty & /*guesses*/ 2) set_data(t1, /*guesses*/ ctx[1]);
-  			if ((!current || dirty & /*guesses*/ 2) && t3_value !== (t3_value = (/*guesses*/ ctx[1] > 0 ? "s" : "") + "")) set_data(t3, t3_value);
+  			if (!current || dirty & /*guesses*/ 1) set_data(t1, /*guesses*/ ctx[0]);
+  			if ((!current || dirty & /*guesses*/ 1) && t3_value !== (t3_value = (/*guesses*/ ctx[0] > 0 ? "s" : "") + "")) set_data(t3, t3_value);
   		},
   		i(local) {
   			if (current) return;
@@ -8962,8 +8962,8 @@
   	};
   }
 
-  // (52:12) {:else}
-  function create_else_block$3(ctx) {
+  // (58:16) {#if isUpper}
+  function create_if_block_2$1(ctx) {
   	let span;
 
   	return {
@@ -8982,7 +8982,7 @@
   	};
   }
 
-  // (50:12) {#if currentGuess > toBeGuessed}
+  // (55:12) {#if isLower}
   function create_if_block_1$1(ctx) {
   	let span;
 
@@ -9002,7 +9002,7 @@
   	};
   }
 
-  // (46:8) {#if found}
+  // (51:8) {#if isFound}
   function create_if_block$4(ctx) {
   	let t;
   	let current;
@@ -9053,7 +9053,7 @@
   	};
   }
 
-  // (47:8) <Icon class="material-icons">
+  // (52:8) <Icon class="material-icons">
   function create_default_slot_5(ctx) {
   	let t;
 
@@ -9070,7 +9070,7 @@
   	};
   }
 
-  // (48:8) <Label>
+  // (53:8) <Label>
   function create_default_slot_4(ctx) {
   	let t;
 
@@ -9087,31 +9087,36 @@
   	};
   }
 
-  // (45:4) <Card>
+  // (50:4) <Card>
   function create_default_slot_3$1(ctx) {
   	let current_block_type_index;
   	let if_block;
   	let if_block_anchor;
   	let current;
-  	const if_block_creators = [create_if_block$4, create_if_block_1$1, create_else_block$3];
+  	const if_block_creators = [create_if_block$4, create_if_block_1$1, create_if_block_2$1];
   	const if_blocks = [];
 
   	function select_block_type(ctx, dirty) {
-  		if (/*found*/ ctx[2]) return 0;
-  		if (/*currentGuess*/ ctx[3] > /*toBeGuessed*/ ctx[0]) return 1;
-  		return 2;
+  		if (/*isFound*/ ctx[1]) return 0;
+  		if (/*isLower*/ ctx[2]) return 1;
+  		if (/*isUpper*/ ctx[3]) return 2;
+  		return -1;
   	}
 
-  	current_block_type_index = select_block_type(ctx);
-  	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  	if (~(current_block_type_index = select_block_type(ctx))) {
+  		if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  	}
 
   	return {
   		c() {
-  			if_block.c();
+  			if (if_block) if_block.c();
   			if_block_anchor = empty();
   		},
   		m(target, anchor) {
-  			if_blocks[current_block_type_index].m(target, anchor);
+  			if (~current_block_type_index) {
+  				if_blocks[current_block_type_index].m(target, anchor);
+  			}
+
   			insert(target, if_block_anchor, anchor);
   			current = true;
   		},
@@ -9120,22 +9125,29 @@
   			current_block_type_index = select_block_type(ctx);
 
   			if (current_block_type_index !== previous_block_index) {
-  				group_outros();
+  				if (if_block) {
+  					group_outros();
 
-  				transition_out(if_blocks[previous_block_index], 1, 1, () => {
-  					if_blocks[previous_block_index] = null;
-  				});
+  					transition_out(if_blocks[previous_block_index], 1, 1, () => {
+  						if_blocks[previous_block_index] = null;
+  					});
 
-  				check_outros();
-  				if_block = if_blocks[current_block_type_index];
-
-  				if (!if_block) {
-  					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
-  					if_block.c();
+  					check_outros();
   				}
 
-  				transition_in(if_block, 1);
-  				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+  				if (~current_block_type_index) {
+  					if_block = if_blocks[current_block_type_index];
+
+  					if (!if_block) {
+  						if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  						if_block.c();
+  					}
+
+  					transition_in(if_block, 1);
+  					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+  				} else {
+  					if_block = null;
+  				}
   			}
   		},
   		i(local) {
@@ -9148,13 +9160,16 @@
   			current = false;
   		},
   		d(detaching) {
-  			if_blocks[current_block_type_index].d(detaching);
+  			if (~current_block_type_index) {
+  				if_blocks[current_block_type_index].d(detaching);
+  			}
+
   			if (detaching) detach(if_block_anchor);
   		}
   	};
   }
 
-  // (63:12) <Label>
+  // (70:12) <Label>
   function create_default_slot_2$2(ctx) {
   	let t;
 
@@ -9171,7 +9186,7 @@
   	};
   }
 
-  // (62:8) <Button on:click={guess}>
+  // (69:8) <Button on:click={guess}>
   function create_default_slot_1$3(ctx) {
   	let current;
 
@@ -9193,7 +9208,7 @@
   		p(ctx, dirty) {
   			const label_changes = {};
 
-  			if (dirty & /*$$scope*/ 128) {
+  			if (dirty & /*$$scope*/ 512) {
   				label_changes.$$scope = { dirty, ctx };
   			}
 
@@ -9214,20 +9229,20 @@
   	};
   }
 
-  // (60:4) <Card>
+  // (67:4) <Card>
   function create_default_slot$5(ctx) {
   	let updating_value;
   	let t;
   	let current;
 
   	function textfield_value_binding(value) {
-  		/*textfield_value_binding*/ ctx[6].call(null, value);
+  		/*textfield_value_binding*/ ctx[8].call(null, value);
   	}
 
   	let textfield_props = { label: "essai" };
 
-  	if (/*currentGuess*/ ctx[3] !== void 0) {
-  		textfield_props.value = /*currentGuess*/ ctx[3];
+  	if (/*currentGuess*/ ctx[4] !== void 0) {
+  		textfield_props.value = /*currentGuess*/ ctx[4];
   	}
 
   	const textfield = new Textfield({ props: textfield_props });
@@ -9240,7 +9255,7 @@
   			}
   		});
 
-  	button.$on("click", /*guess*/ ctx[5]);
+  	button.$on("click", /*guess*/ ctx[6]);
 
   	return {
   		c() {
@@ -9257,16 +9272,16 @@
   		p(ctx, dirty) {
   			const textfield_changes = {};
 
-  			if (!updating_value && dirty & /*currentGuess*/ 8) {
+  			if (!updating_value && dirty & /*currentGuess*/ 16) {
   				updating_value = true;
-  				textfield_changes.value = /*currentGuess*/ ctx[3];
+  				textfield_changes.value = /*currentGuess*/ ctx[4];
   				add_flush_callback(() => updating_value = false);
   			}
 
   			textfield.$set(textfield_changes);
   			const button_changes = {};
 
-  			if (dirty & /*$$scope*/ 128) {
+  			if (dirty & /*$$scope*/ 512) {
   				button_changes.$$scope = { dirty, ctx };
   			}
 
@@ -9348,21 +9363,21 @@
   		p(ctx, [dirty]) {
   			const card0_changes = {};
 
-  			if (dirty & /*$$scope, guesses*/ 130) {
+  			if (dirty & /*$$scope, guesses*/ 513) {
   				card0_changes.$$scope = { dirty, ctx };
   			}
 
   			card0.$set(card0_changes);
   			const card1_changes = {};
 
-  			if (dirty & /*$$scope, found, currentGuess, toBeGuessed*/ 141) {
+  			if (dirty & /*$$scope, isFound, isLower, isUpper*/ 526) {
   				card1_changes.$$scope = { dirty, ctx };
   			}
 
   			card1.$set(card1_changes);
   			const card2_changes = {};
 
-  			if (dirty & /*$$scope, currentGuess*/ 136) {
+  			if (dirty & /*$$scope, currentGuess*/ 528) {
   				card2_changes.$$scope = { dirty, ctx };
   			}
 
@@ -9397,36 +9412,42 @@
   function instance$i($$self, $$props, $$invalidate) {
   	let toBeGuessed = 0;
   	let guesses = 0;
-  	let found = false;
-  	let currentGuess = -1;
+  	let isFound = false;
+  	let isLower = false;
+  	let isUpper = false;
+  	let currentGuess = "votre essai";
 
   	onMount(async () => {
   		reset();
   	});
 
   	function reset() {
-  		$$invalidate(0, toBeGuessed = Math.floor(Math.random() * Math.floor(100)));
-  		$$invalidate(1, guesses = 0);
+  		toBeGuessed = Math.floor(Math.random() * Math.floor(100));
+  		$$invalidate(0, guesses = 0);
   	}
 
   	function guess() {
-  		$$invalidate(1, guesses++, guesses);
+  		$$invalidate(0, guesses++, guesses);
   		console.log(`${currentGuess} ?? ${toBeGuessed}`);
-  		$$invalidate(2, found = toBeGuessed == currentGuess);
+  		$$invalidate(1, isFound = toBeGuessed == currentGuess);
+  		$$invalidate(2, isLower = toBeGuessed < currentGuess);
+  		$$invalidate(3, isUpper = toBeGuessed > currentGuess);
   	}
 
   	function textfield_value_binding(value) {
   		currentGuess = value;
-  		$$invalidate(3, currentGuess);
+  		$$invalidate(4, currentGuess);
   	}
 
   	return [
-  		toBeGuessed,
   		guesses,
-  		found,
+  		isFound,
+  		isLower,
+  		isUpper,
   		currentGuess,
   		reset,
   		guess,
+  		toBeGuessed,
   		textfield_value_binding
   	];
   }
@@ -12128,7 +12149,7 @@
 
   /* node_modules\@smui\list\List.svelte generated by Svelte v3.18.1 */
 
-  function create_else_block$4(ctx) {
+  function create_else_block$3(ctx) {
   	let ul;
   	let useActions_action;
   	let forwardEvents_action;
@@ -12304,7 +12325,7 @@
   	let if_block;
   	let if_block_anchor;
   	let current;
-  	const if_block_creators = [create_if_block$5, create_else_block$4];
+  	const if_block_creators = [create_if_block$5, create_else_block$3];
   	const if_blocks = [];
 
   	function select_block_type(ctx, dirty) {
@@ -12594,7 +12615,7 @@
 
   /* node_modules\@smui\list\Item.svelte generated by Svelte v3.18.1 */
 
-  function create_else_block$5(ctx) {
+  function create_else_block$4(ctx) {
   	let li;
   	let useActions_action;
   	let forwardEvents_action;
@@ -12906,7 +12927,7 @@
   	let if_block;
   	let if_block_anchor;
   	let current;
-  	const if_block_creators = [create_if_block$6, create_if_block_1$2, create_else_block$5];
+  	const if_block_creators = [create_if_block$6, create_if_block_1$2, create_else_block$4];
   	const if_blocks = [];
 
   	function select_block_type(ctx, dirty) {
@@ -13390,7 +13411,7 @@
 
   /* node_modules\@smui\list\Separator.svelte generated by Svelte v3.18.1 */
 
-  function create_else_block$6(ctx) {
+  function create_else_block$5(ctx) {
   	let li;
   	let useActions_action;
   	let forwardEvents_action;
@@ -13496,7 +13517,7 @@
 
   	function select_block_type(ctx, dirty) {
   		if (/*group*/ ctx[2] || /*nav*/ ctx[3]) return create_if_block$7;
-  		return create_else_block$6;
+  		return create_else_block$5;
   	}
 
   	let current_block_type = select_block_type(ctx);
