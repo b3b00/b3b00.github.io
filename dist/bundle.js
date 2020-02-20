@@ -4393,7 +4393,7 @@
   	return {
   		c() {
   			div = element("div");
-  			div.innerHTML = `<img src="./test512.png">`;
+  			div.innerHTML = `<img src="./test512.png" alt="home page of YEP !">`;
   			attr(div, "class", "container");
   		},
   		m(target, anchor) {
