@@ -9438,7 +9438,7 @@
   		/*textfield_value_binding*/ ctx[8].call(null, value);
   	}
 
-  	let textfield_props = { label: "00", type: "number" };
+  	let textfield_props = { label: "essai", type: "number" };
 
   	if (/*currentGuess*/ ctx[4] !== void 0) {
   		textfield_props.value = /*currentGuess*/ ctx[4];
