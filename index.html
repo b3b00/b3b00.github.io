@@ -27,8 +27,22 @@
 <script src="./addtohomescreen.js"></script>
 <script>
 addToHomescreen({
-    //options
-});
+    onShow: function () {
+        console.log( "showing" );
+    },
+    onInit: function () {
+        console.log( "initializing" );
+    },
+    onAdd: function () {
+        console.log( "adding" );
+    },
+    onInstall: function () {
+        console.log( "Installing" );
+    },
+    onCancel: function () {
+        console.log( "Cancelling" );
+    }
+} );
 </script>
 
   <style>
@@ -56,21 +70,7 @@ addToHomescreen({
   </script>
   <script type="text/javascript" src="dist/bundle.js"></script>
   <script>
-var _beforeInstallPrompt;
 
-if ( "onbeforeinstallprompt" in window ) {
-  console.log('setting beforeinstallprompt callback');
-	window.addEventListener( "beforeinstallprompt", beforeInstallPrompt );
-
-}
-
-function beforeInstallPrompt( evt ) {
-  console.log('beforeinstallprompt',evt);
-	evt.preventDefault();
-
-	_beforeInstallPrompt = evt;
-
-}
 
   </script>
 
