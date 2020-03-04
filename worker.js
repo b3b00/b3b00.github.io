@@ -28,15 +28,15 @@ self.addEventListener('activate', function(event) {
   // });
 
 console.log('register install event');
-self.addEventListener("install", installEvent => {
+self.addEventListener('install', installEvent => {
 
   console.log("install event called",assets);
-  installEvent.waitUntil(
-    caches.open(pwaCache).then(cache => {
-      console.log("caching ",assets);
-      cache.addAll(assets)
-    })
-  );
+  // installEvent.waitUntil(
+  //   caches.open(pwaCache).then(cache => {
+  //     console.log("caching ",assets);
+  //     cache.addAll(assets)
+  //   })
+  // );
   console.log("worker is installed now.");
 })
 
