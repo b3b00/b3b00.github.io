@@ -63,8 +63,33 @@ addToHomescreen({
 
       navigator.serviceWorker
         .register("/worker.js")
-        .then(res => console.log("service worker registered"))
-        .catch(err => console.log("service worker not registered", err))
+        .then(res => {
+          console.log("service worker registered");
+          
+          /*------------------------------*/
+
+          Notification.requestPermission(result => {
+            if (result === 'granted') {
+              console.log("notifications granted.",result);
+              navigator.serviceWorker.ready.then(registration => {
+                console.log("show notif ???!!!!",registration)
+                registration.showNotification('Vibration Sample', {
+                  body: 'Buzz! Buzz!',
+                  tag: 'vibration-sample'
+                }).then((value) => {
+                  console.log("notified",value);
+                })
+                .catch((reason) => {
+                  console.log("exception on notification ",reason);
+                });
+              });
+            }
+          });
+          /*------------------------------*/
+
+
+      })
+      .catch(err => console.log("service worker not registered", err))
 
     }
 
