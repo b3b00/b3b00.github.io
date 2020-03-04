@@ -32,12 +32,12 @@ self.addEventListener('install', installEvent => {
 
   try {
   console.log("install event called",assets);
-  // installEvent.waitUntil(
-  //   caches.open(pwaCache).then(cache => {
-  //     console.log("caching ",assets);
-  //     cache.addAll(assets)
-  //   })
-  // );
+  installEvent.waitUntil(
+    caches.open(pwaCache).then(cache => {
+      console.log("caching ",assets);
+      cache.addAll(assets)
+    })
+  );
   console.log("worker is installed now.");
   }
   catch(e) {
@@ -50,7 +50,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener("fetch", fetchEvent => {
-  
+  console.log("worker fetching",fetchEvent)
   try {
     fetchEvent.respondWith(
       caches.match(fetchEvent.request).then(res => {
