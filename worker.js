@@ -50,11 +50,22 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener("fetch", fetchEvent => {
+  
+  try {
     fetchEvent.respondWith(
       caches.match(fetchEvent.request).then(res => {
+        try {
         return res || fetch(fetchEvent.request)
+        }
+        catch(e) {
+          console.log("feth",e);
+        }
       })
     );
+
+    catch(e) {
+      console.log("error fetch event : ",event,e);
+    }
   });
 
   // console.log("all callbacks registered");
