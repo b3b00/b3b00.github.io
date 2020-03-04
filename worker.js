@@ -23,8 +23,13 @@ self.addEventListener('activate', function(event) {
   return self.clients.claim();
   });
 
+  // self.addEventListener('install', event => {
+  //   console.log('Service worker installed.');
+  // });
+
 console.log('register install event');
 self.addEventListener("install", installEvent => {
+  console.log("install event called");
   installEvent.waitUntil(
     caches.open(pwaCache).then(cache => {
       console.log("caching ",assets);
@@ -34,7 +39,9 @@ self.addEventListener("install", installEvent => {
   console.log("worker is installed now.");
 })
 
-
+// self.addEventListener('fetch', event => {
+//   console.log('Fetching:', event.request.url);
+// });
 
 self.addEventListener("fetch", fetchEvent => {
     fetchEvent.respondWith(
@@ -44,4 +51,4 @@ self.addEventListener("fetch", fetchEvent => {
     );
   });
 
-  console.log("all callbacks registered");
+  // console.log("all callbacks registered");
