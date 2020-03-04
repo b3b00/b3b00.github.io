@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
   <link rel="stylesheet" href="dist/bundle.css">
+  <link rel="apple-touch-icon" href="images/icons/icon-72x72.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-96x96.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-128x128.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-144x144.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-152x152.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-192x192.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-384x384.png" />
+<link rel="apple-touch-icon" href="images/icons/icon-512x512.png" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="test.png">
@@ -32,7 +40,7 @@
 
       navigator.serviceWorker
         .register("/worker.js")
-        .then(res => console.log("service worker registered", res))
+        .then(res => console.log("service worker registered"))
         .catch(err => console.log("service worker not registered", err))
 
     }
