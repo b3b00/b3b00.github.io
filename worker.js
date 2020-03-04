@@ -30,6 +30,7 @@ self.addEventListener('activate', function(event) {
 console.log('register install event');
 self.addEventListener('install', installEvent => {
 
+  try {
   console.log("install event called",assets);
   // installEvent.waitUntil(
   //   caches.open(pwaCache).then(cache => {
@@ -38,6 +39,10 @@ self.addEventListener('install', installEvent => {
   //   })
   // );
   console.log("worker is installed now.");
+  }
+  catch(e) {
+    console.log("error",e);
+  }
 })
 
 self.addEventListener('fetch', event => {
