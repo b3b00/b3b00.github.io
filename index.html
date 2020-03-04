@@ -47,6 +47,24 @@
 
   </script>
   <script type="text/javascript" src="dist/bundle.js"></script>
+  <script>
+var _beforeInstallPrompt;
+
+if ( "onbeforeinstallprompt" in window ) {
+  console.log('setting beforeinstallprompt callback');
+	window.addEventListener( "beforeinstallprompt", beforeInstallPrompt );
+
+}
+
+function beforeInstallPrompt( evt ) {
+  console.log('beforeinstallprompt',evt);
+	evt.preventDefault();
+
+	_beforeInstallPrompt = evt;
+
+}
+
+  </script>
 
 </body>
 
