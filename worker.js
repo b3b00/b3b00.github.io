@@ -61,3 +61,28 @@ self.addEventListener("fetch", fetchEvent => {
   }
 });
 
+self.addEventListener('push', event => {
+  
+  // navigator.serviceWorker.getRegistration()
+  // .then(reg => reg.showNotification("I've received a notification", []));
+  var notificationTitle = 'Hello';
+  var notificationOptions = {
+    body: 'Thanks for sending this push msg.',
+    icon: './images/logo-192x192.png',
+    badge: './images/badge-72x72.png',
+    tag: 'simple-push-demo-notification',
+    data: {
+      url: 'https://developers.google.com/web/fundamentals/getting-started/push-notifications/'
+    }
+  };
+
+  if (event.data) {
+    var dataText = event.data.text();
+    notificationTitle = 'Received Payload';
+    notificationOptions.body = 'Push data: \'' + dataText + '\'';
+  }
+
+  event.waitUntil(Promise.all([self.registration.showNotification(notificationTitle, notificationOptions)]));
+;
+})
+
