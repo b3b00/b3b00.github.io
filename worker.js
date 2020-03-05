@@ -68,9 +68,9 @@ self.addEventListener('push', event => {
   var notificationTitle = 'Hello';
   var notificationOptions = {
     body: 'Thanks for sending this push msg.',
-    icon: './images/logo-192x192.png',
-    badge: './images/badge-72x72.png',
-    tag: 'simple-push-demo-notification',
+    icon: './images/icons/icon-192x192.png',
+    badge: './images/icons/icon-96x96.png',
+    tag: '',
     data: {
       url: 'https://developers.google.com/web/fundamentals/getting-started/push-notifications/'
     }
@@ -86,4 +86,3 @@ self.addEventListener('push', event => {
 ;
 })
 
-;
