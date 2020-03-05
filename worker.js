@@ -22,9 +22,7 @@ self.addEventListener("activate", function(event) {
   return self.clients.claim();
 });
 
-// self.addEventListener('install', event => {
-//   console.log('Service worker installed.');
-// });
+
 
 console.log("register install event");
 self.addEventListener("install", installEvent => {
@@ -63,4 +61,3 @@ self.addEventListener("fetch", fetchEvent => {
   }
 });
 
-// console.log("all callbacks registered");

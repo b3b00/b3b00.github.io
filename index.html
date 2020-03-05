@@ -72,16 +72,7 @@ addToHomescreen({
             if (result === 'granted') {
               console.log("notifications granted.",result);
               navigator.serviceWorker.ready.then(registration => {
-                console.log("show notif ???!!!!",registration)
-                registration.showNotification('Vibration Sample', {
-                  body: 'Buzz! Buzz!',
-                  tag: 'vibration-sample'
-                }).then((value) => {
-                  console.log("notified",value);
-                })
-                .catch((reason) => {
-                  console.log("exception on notification ",reason);
-                });
+                
               });
             }
           });
