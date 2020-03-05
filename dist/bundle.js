@@ -11091,7 +11091,7 @@
   			attr(div1, "class", "button svelte-16lhtdr");
   			attr(div2, "class", "button svelte-16lhtdr");
   			set_style(div3, "margin", "0 auto");
-  			set_style(div3, "width", "75%");
+  			set_style(div3, "width", "100%");
   			set_style(div3, "flex-wrap", "wrap");
   			set_style(div3, "padding", "10px");
   			set_style(div3, "display", "flex");
@@ -11100,7 +11100,7 @@
   			attr(div5, "class", "button svelte-16lhtdr");
   			attr(div6, "class", "button svelte-16lhtdr");
   			set_style(div7, "margin", "0 auto");
-  			set_style(div7, "width", "75%");
+  			set_style(div7, "width", "100%");
   			set_style(div7, "flex-wrap", "wrap");
   			set_style(div7, "padding", "10px");
   			set_style(div7, "display", "flex");
@@ -11109,7 +11109,7 @@
   			attr(div9, "class", "button svelte-16lhtdr");
   			attr(div10, "class", "button svelte-16lhtdr");
   			set_style(div11, "margin", "0 auto");
-  			set_style(div11, "width", "75%");
+  			set_style(div11, "width", "100%");
   			set_style(div11, "flex-wrap", "wrap");
   			set_style(div11, "padding", "10px");
   			set_style(div11, "display", "flex");
@@ -11117,7 +11117,7 @@
   			attr(div12, "class", "button svelte-16lhtdr");
   			attr(div13, "class", "button svelte-16lhtdr");
   			set_style(div14, "margin", "0 auto");
-  			set_style(div14, "width", "75%");
+  			set_style(div14, "width", "100%");
   			set_style(div14, "flex-wrap", "wrap");
   			set_style(div14, "padding", "10px");
   			set_style(div14, "display", "flex");
