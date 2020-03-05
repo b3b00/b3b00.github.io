@@ -9995,7 +9995,7 @@
   		var notificationOptions = {
   			body: "une notification qu\"elle est belle !.",
   			icon: "./images/icons/icon-192x192.png",
-  			badge: "./images/icons/icon-96x96.png",
+  			badge: "",
   			tag: "",
   			data: {
   				url: "https://developers.google.com/web/fundamentals/getting-started/push-notifications/"
