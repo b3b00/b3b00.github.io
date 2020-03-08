@@ -10266,7 +10266,7 @@
   	};
   }
 
-  // (75:8) <Fab on:click={reset} class="row">
+  // (69:8) <Fab on:click={reset} class="row">
   function create_default_slot_9$1(ctx) {
   	let current;
 
@@ -10310,7 +10310,7 @@
   	};
   }
 
-  // (73:4) <Card>
+  // (67:4) <Card>
   function create_default_slot_8$1(ctx) {
   	let t0;
   	let span;
@@ -10376,7 +10376,7 @@
   	};
   }
 
-  // (97:12) {:else}
+  // (91:12) {:else}
   function create_else_block$3(ctx) {
   	let div0;
   	let t0;
@@ -10499,7 +10499,7 @@
   	};
   }
 
-  // (94:12) {#if isFound}
+  // (88:12) {#if isFound}
   function create_if_block$5(ctx) {
   	let t;
   	let current;
@@ -10566,7 +10566,7 @@
   	};
   }
 
-  // (99:16) {#if isLower}
+  // (93:16) {#if isLower}
   function create_if_block_2$2(ctx) {
   	let current;
 
@@ -10601,7 +10601,7 @@
   	};
   }
 
-  // (100:16) <Icon class="material-icons">
+  // (94:16) <Icon class="material-icons">
   function create_default_slot_7$1(ctx) {
   	let t;
 
@@ -10618,7 +10618,7 @@
   	};
   }
 
-  // (106:16) <Label>
+  // (100:16) <Label>
   function create_default_slot_6$1(ctx) {
   	let t;
 
@@ -10638,7 +10638,7 @@
   	};
   }
 
-  // (105:12) <Button variant="raised" ripple="true" color="secondary" on:click={guess} class="row">
+  // (99:12) <Button variant="raised" ripple="true" color="secondary" on:click={guess} class="row">
   function create_default_slot_5$2(ctx) {
   	let current;
 
@@ -10681,7 +10681,7 @@
   	};
   }
 
-  // (111:12) {#if isUpper}
+  // (104:12) {#if isUpper}
   function create_if_block_1$2(ctx) {
   	let current;
 
@@ -10716,7 +10716,7 @@
   	};
   }
 
-  // (112:12) <Icon class="material-icons">
+  // (105:12) <Icon class="material-icons">
   function create_default_slot_4$2(ctx) {
   	let t;
 
@@ -10733,7 +10733,7 @@
   	};
   }
 
-  // (95:12) <Icon class="material-icons">
+  // (89:12) <Icon class="material-icons">
   function create_default_slot_3$2(ctx) {
   	let t;
 
@@ -10750,7 +10750,7 @@
   	};
   }
 
-  // (96:12) <Label>
+  // (90:12) <Label>
   function create_default_slot_2$4(ctx) {
   	let t;
 
@@ -10767,7 +10767,7 @@
   	};
   }
 
-  // (85:4) <Card>
+  // (79:4) <Card>
   function create_default_slot_1$6(ctx) {
   	let div0;
   	let t;
@@ -10855,7 +10855,7 @@
   	};
   }
 
-  // (122:4) <Card>
+  // (115:4) <Card>
   function create_default_slot$8(ctx) {
   	let current;
   	const numpad = new NumPad({});
