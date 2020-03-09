@@ -4,6 +4,9 @@ import { writable } from 'svelte/store';
 
 // export const switched = writable(true);
 
+export const netStatus = writable(true);
+
+
 
 const createWritableStore = (key, startValue) => {
     const { subscribe, set, update } = writable(startValue);
